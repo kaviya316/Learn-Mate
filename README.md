@@ -1,7 +1,7 @@
 # Learn-Mate
 LearnMate – AI Exam Prep
-
 Overview
+
 LearnMate is an AI-powered exam preparation platform that helps students study smarter. It provides personalized notes, quizzes, performance tracking, and smart timetables to ensure effective and timely preparation.
 
 Core Features
@@ -37,17 +37,17 @@ Alerts for unfinished syllabus and upcoming deadlines.
 
 📌 Unique Additions
 
-Adaptive Revision Mode – The system repeats weak topics until mastery is shown.
+Adaptive Revision Mode – Repeats weak topics until mastery is shown.
 
 Gamified Learning – Earn badges, streaks, and rewards for completing goals.
 
-Peer Study Mode – Match with friends or classmates to share progress and compete.
+Peer Study Mode – Match with classmates to share progress and compete.
 
 AI Mentor Chat – Built-in chatbot for quick explanations and doubt-solving.
 
-Focus Timer with Breaks – Pomodoro-style study sessions to improve focus.
+Focus Timer with Breaks – Pomodoro-style sessions to improve focus.
 
-Confidence Tracker – Students self-rate after quizzes, AI compares with actual performance to boost accuracy and self-awareness.
+Confidence Tracker – Students self-rate after quizzes, AI compares with actual performance.
 
 Tech Stack
 
