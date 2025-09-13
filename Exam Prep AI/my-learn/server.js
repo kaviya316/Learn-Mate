@@ -1,42 +1,24 @@
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
-
-import oneShotDemo from "./routes/oneShotDemo.js";
-import multiShotDemo from "./routes/multiShotDemo.js"; // Multi shot route
-import dynamicPrompting from "./routes/dynamicPrompting.js";
-
-dotenv.config();
-console.log("Loaded API Key?", process.env.OPENAI_API_KEY ? "Yes" : "No");
+import bodyParser from "body-parser";
+import fetch from "node-fetch"; // if you use node18+, built-in fetch works
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// ✅ Serve static files from "public" folder
-import path from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Example AI summarizer endpoint
+app.post("/api/summarize", async (req, res) => {
+  const { text } = req.body;
 
-app.use(express.static(path.join(__dirname, "public")));
+  // Normally, you’d call OpenAI or HuggingFace here
+  // For now, let's simulate
+  const fakeSummary =
+    text.length > 50
+      ? text.slice(0, 50) + "... (summary generated)"
+      : "Too short, nothing to summarize.";
 
-// Example API route
-app.post("/api/prompt", async (req, res) => {
-  const { type, message, input } = req.body;
-  res.json({ reply: `Got a ${type} prompt: ${message} with input: ${input}` });
+  res.json({ summary: fakeSummary });
 });
 
-app.use("/api", oneShotDemo);
-app.use("/api", multiShotDemo);
-app.use("/api", dynamicPrompting);
-
-// optional simple health route
-app.get("/health", (req, res) => res.json({ status: "ok" }));
-
-console.log("API Key Loaded:", process.env.OPENAI_API_KEY);
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
-);
+app.listen(5000, () => console.log("✅ AI Backend running on http://localhost:5000"));
